@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstil Geri Dönüşümü & 3D Filament Üretimi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: linear-gradient(120deg, #1a2236 0%, #23325c 50%, #2c3e70 100%);
+            margin: 0;
+            padding: 0;
+            color: #e3f0ff;
+        }
+        .section {
+            padding: 4rem 0 3rem 0;
+            min-height: 400px;
+            transition: background 0.7s;
+            position: relative;
+        }
+        .section:nth-child(even) {
+            background: linear-gradient(90deg, #23325c 0%, #1a2236 100%);
+        }
+        .section:nth-child(odd) {
+            background: linear-gradient(90deg, #1a2236 0%, #2c3e70 100%);
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.18;
+            z-index: 0;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .section:nth-child(2)::before {
+            background: url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .section:nth-child(3)::before {
+            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .section:nth-child(4)::before {
+            background: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .section:nth-child(5)::before {
+            background: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .section:nth-child(6)::before {
+            background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+        }
+        .card {
+            background: rgba(34, 44, 70, 0.92);
+            border-radius: 18px;
+            box-shadow: 0 6px 24px rgba(44,62,80,0.22);
+            padding: 2rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+            color: #e3f0ff;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(44,62,80,0.38);
+        }
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #6fa3ef;
+            letter-spacing: 1px;
+        }
+        h1 {
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+        }
+        .cta {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #23325c 0%, #6fa3ef 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+            transition: background 0.2s;
+        }
+        .cta:hover {
+            background: linear-gradient(90deg, #1a2236 0%, #40916c 100%);
+        }
+        nav {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        nav a {
+            color: #6fa3ef;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-right: 2rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        nav a:last-child { margin-right: 0; }
+        nav a:hover { color: #40916c; }
+        footer {
+            text-align: center;
+            color: #6fa3ef;
+            background: #1a2236;
+            padding: 1rem 0;
+            font-size: 0.95rem;
+            border-top: 1px solid #23325c;
+        }
+    </style>
+</head>
+<body>
+        <div style="width:100%; background:linear-gradient(90deg,#23325c 0%,#6fa3ef 100%); box-shadow:0 4px 16px rgba(44,62,80,0.18); border-bottom:3px solid #6fa3ef; border-radius:0 0 24px 24px; margin-bottom:2rem;">
+            <nav style="text-align:center; padding:1.5rem 0;">
+                <span style="display:inline-block; background:rgba(34,44,70,0.92); border-radius:16px; padding:0.7rem 2.5rem; box-shadow:0 2px 12px #23325c; border:2px solid #6fa3ef;">
+                    <a href="index.html" style="color:#6fa3ef; font-weight:500; font-size:1.1rem; margin-right:2rem; text-decoration:none; transition:color 0.2s; font-family:'Times New Roman', Times, serif; border:2px solid #6fa3ef; border-radius:8px; padding:0.5rem 1.2rem; background:linear-gradient(90deg,#23325c 0%,#6fa3ef 100%);">Ana Sayfa</a>
+                    <a href="basvuru.html" style="color:#6fa3ef; font-weight:500; font-size:1.1rem; margin-right:2rem; text-decoration:none; transition:color 0.2s; font-family:'Times New Roman', Times, serif; border:2px solid #6fa3ef; border-radius:8px; padding:0.5rem 1.2rem; background:linear-gradient(90deg,#23325c 0%,#6fa3ef 100%);">Projeye Katıl</a>
+                </span>
+            </nav>
+        </div>
+    <main>
+        <div style="max-width:900px; margin:2rem auto;">
+            <section class="section" style="margin-bottom:2.5rem; background:linear-gradient(120deg,#23325c 0%,#2c3e70 100%); border-radius:24px; box-shadow:0 8px 32px rgba(44,62,80,0.22); padding:2.5rem 1.5rem;">
+                <div class="card" style="background:rgba(34,44,70,0.96); border:3px solid #6fa3ef; box-shadow:0 8px 32px rgba(44,62,80,0.22); text-align:center;">
+                    <h1 style="font-size:2.7rem; margin-bottom:1rem; color:#6fa3ef;">Ana Sayfa</h1>
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Polyester kumaş ve geri dönüşüm" style="width:100%; max-width:320px; border-radius:12px; box-shadow:0 2px 12px #23325c; margin-bottom:1rem;">
+                    <p style="font-size:1.2rem; color:#6fa3ef;">Sürdürülebilirlik ve inovasyonun buluştuğu bir dönüşüm projesi</p>
+                </div>
+            </section>
+            <section class="section" style="margin-bottom:2.5rem; background:linear-gradient(120deg,#2c3e70 0%,#23325c 100%); border-radius:24px; box-shadow:0 8px 32px rgba(44,62,80,0.22); padding:2.5rem 1.5rem;">
+                <div class="card" style="background:rgba(34,44,70,0.96); border:2px solid #6fa3ef;">
+                    <h2 style="color:#6fa3ef; text-align:center;">Hakkımızda</h2>
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" alt="Geri dönüşüm" style="width:100%; max-width:220px; border-radius:10px; box-shadow:0 2px 12px #23325c; display:block; margin:1rem auto;">
+                    <p style="font-size:1.08rem; color:#e3f0ff; margin-bottom:1.2rem;">Şirketimiz, tekstil atıklarını geri dönüştürerek 3D yazıcı filamentleri üretmek amacıyla kurulmuştur. Amacımız sadece çevreye katkı sağlamak değil; aynı zamanda geleceğin mühendislerine, tasarımcılarına ve öğrencilere sürdürülebilir malzemelerle çalışabilecekleri yeni fırsatlar sunmaktır.</p>
+                    <ul style="color:#6fa3ef; font-size:1.05rem; margin-bottom:1.2rem;">
+                        <li>Geri dönüştürülen her kumaş parçası, hem çevre kirliliğini azaltır hem de teknolojiye değer katar.</li>
+                        <li>Öğrencilere sağlanacak uygun maliyetli ve çevre dostu filamentler, onların projelerinde daha özgür ve yaratıcı olmalarına yardımcı olur.</li>
+                    </ul>
+                    <div style="background:rgba(34,44,70,0.85); border-radius:8px; padding:1rem; margin-top:1.2rem; color:#6fa3ef; text-align:center;">
+                        <strong>Yıllık Kazanımlarımız</strong><br>
+                        <span style="font-size:1.1rem;">Su israfı: <b>120.000 litre</b> önlendi</span><br>
+                        <span style="font-size:1.1rem;">Enerji tasarrufu: <b>18.000 kWh</b> sağlandı</span>
+                    </div>
+                </div>
+            </section>
+            <section class="section" style="margin-bottom:2.5rem; background:linear-gradient(120deg,#23325c 0%,#2c3e70 100%); border-radius:24px; box-shadow:0 8px 32px rgba(44,62,80,0.22); padding:2.5rem 1.5rem;">
+                <div class="card" style="background:rgba(34,44,70,0.96); border:2px solid #6fa3ef;">
+                    <h2 style="color:#6fa3ef; text-align:center;">📊 Ne Katkım Olacak?</h2>
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=500&q=80" alt="Kumaş israfı" style="width:100%; max-width:220px; border-radius:10px; box-shadow:0 2px 12px #23325c; display:block; margin:1rem auto;">
+                    <p style="font-size:1.08rem; color:#e3f0ff; margin-bottom:1.2rem;">Dünyada her yıl <b>92 milyon ton</b> tekstil atığı çöpe gitmektedir. Türkiye’de ise yılda yaklaşık <b>1 milyon ton</b> kumaş israf edilmektedir.</p>
+                    <ul style="color:#6fa3ef; font-size:1.05rem; margin-bottom:1.2rem;">
+                        <li>Siz bağış yaptığınızda: Bu israfın azalmasına doğrudan katkı sağlıyorsunuz.</li>
+                        <li>Her bir kıyafet, çöpe değil üretime geri dönüyor.</li>
+                        <li>Çevre dostu bir döngünün parçası oluyorsunuz.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section" style="margin-bottom:2.5rem; background:linear-gradient(120deg,#2c3e70 0%,#23325c 100%); border-radius:24px; box-shadow:0 8px 32px rgba(44,62,80,0.22); padding:2.5rem 1.5rem;">
+                <div class="card" style="background:rgba(34,44,70,0.96); border:2px solid #6fa3ef;">
+                    <h2 style="color:#6fa3ef; text-align:center;">👕 Kıyafetlerim Nereye Gidiyor?</h2>
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=500&q=80" alt="Kıyafet geri dönüşüm" style="width:100%; max-width:220px; border-radius:10px; box-shadow:0 2px 12px #23325c; display:block; margin:1rem auto;">
+                    <p style="font-size:1.08rem; color:#e3f0ff; margin-bottom:1.2rem;">Sizin göndereceğiniz kıyafetler, Türkiye’deki tesislerimize ulaştırılacak ve tamamen fabrikalarımızda işlenecektir. Burada:</p>
+                    <ul style="color:#6fa3ef; font-size:1.05rem; margin-bottom:1.2rem;">
+                        <li>Kumaşlar ayrıştırılır ve geri dönüşüme uygun hale getirilir.</li>
+                        <li>Polyester bazlı parçalar dönüştürülerek 3D yazıcı filamentlerine hayat bulur.</li>
+                        <li>Böylece yaptığınız her bağış, hem doğayı temizler hem de geleceğe yatırım yapar.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <section class="section" style="margin-bottom:2.5rem; background:linear-gradient(90deg,#23325c 0%,#6fa3ef 100%); border-radius:24px; box-shadow:0 8px 32px rgba(44,62,80,0.22); padding:2.5rem 1.5rem; text-align:center;">
+            <div style="display:inline-block; background:linear-gradient(90deg,#6fa3ef 0%,#23325c 100%); border-radius:16px; padding:1.2rem 2.5rem; box-shadow:0 2px 12px #23325c;">
+                <span style="font-size:1.7rem; font-weight:bold; color:#fff; background:linear-gradient(90deg,#e3f0ff 0%,#6fa3ef 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing:1px;">“Atık değil, yeni bir başlangıç.”</span>
+            </div>
+        </section>
+        <section class="section">
+            <div class="card">
+                <h2>🌍 Neden Bu Proje?</h2>
+                <p>Tekstil sektörü, dünyada en çok atık üreten endüstrilerden biridir. Özellikle polyester kumaşlar, doğada çözünmeyen yapıları nedeniyle çevreye büyük zarar vermektedir. Biz, bu soruna çözüm bulmak için yola çıktık: polyester atıkları 3D yazıcı filamentine dönüştürmek.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="card">
+                <h2>🎯 Amacımız</h2>
+                <ul style="font-size:1.1rem; color:#3a5ca8;">
+                    <li>Tekstil atıklarını geri kazanmak</li>
+                    <li>Sürdürülebilir ve çevre dostu bir hammadde geliştirmek</li>
+                    <li>3D yazıcı kullanıcıları için yenilikçi, ekonomik bir filament alternatifi sunmak</li>
+                    <li>Döngüsel ekonomiye katkı sağlamak</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <div class="card">
+                <h2>⚙️ Nasıl Çalışıyoruz?</h2>
+                <ul style="font-size:1.1rem; color:#3a5ca8;">
+                    <li>Atık toplama → Kullanılmayan polyester kumaşlar geri kazanılır.</li>
+                    <li>Ayrıştırma & temizleme → Kumaşlar işlenmeye hazır hale getirilir.</li>
+                    <li>Granül üretimi → Polyester küçük parçacıklara dönüştürülür.</li>
+                    <li>Filament üretimi → Granüller eritilerek 3D yazıcıya uygun filamentler elde edilir.</li>
+                    <li>Test & uygulama → Dayanıklılık, baskı kalitesi ve esneklik testleri yapılır.</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <div class="card">
+                <h2>🌱 Katkımız</h2>
+                <ul style="font-size:1.1rem; color:#3a5ca8;">
+                    <li>Tekstil atıkları çöp olmaktan çıkar</li>
+                    <li>Çevre dostu ve katma değerli bir ürün elde edilir</li>
+                    <li>3D baskı teknolojisi için yeni bir sürdürülebilir malzeme geliştirilir</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section">
+            <div class="card" style="text-align:center;">
+                <h2>💡 Vizyonumuz</h2>
+                <p style="font-size:1.15rem; color:#40916c; max-width:600px; margin:auto;">Polyester atıkları geleceğin üretim teknolojilerine kazandırarak, çevre ve inovasyonu bir araya getirmek.</p>
+            </div>
+        </section>
+        <section class="section" style="text-align:center;">
+            <div class="card">
+                <h2>Kıyafet Başvurusu Yapmak İsteyenler</h2>
+                <a href="basvuru.html" class="cta">Başvuru Linki</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Tekstil Geri Dönüşüm Projesi<br>
+        İletişim: <a href="tel:5389387281" style="color:#6fa3ef; text-decoration:none;">538 938 72 81</a>
+    </footer>
+</body>
+</html>

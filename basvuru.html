@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başvuru Formu | Polyester Geri Dönüşüm Projesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f0ff 0%, #b3c6e6 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 3rem auto;
+            background: #f6faff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.10);
+            padding: 2.5rem 2rem;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.1rem;
+            color: #3a5ca8;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-top: 1.2rem;
+            font-weight: 500;
+            color: #3a5ca8;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.7rem;
+            margin-top: 0.3rem;
+            border-radius: 8px;
+            border: 1px solid #b3c6e6;
+            font-size: 1rem;
+            background: #e3f0ff;
+        }
+        .checkboxes {
+            margin-top: 1.5rem;
+            background: #e3f0ff;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .checkboxes label {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            color: #1c2e4a;
+            margin-bottom: 0.7rem;
+        }
+        .checkboxes input[type="checkbox"] {
+            margin-right: 0.7rem;
+        }
+        .student-section {
+            margin-top: 1.2rem;
+            background: #e9f5ec;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #40916c;
+            display: none;
+        }
+        .student-section.active {
+            display: block;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #3a5ca8;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-family: 'Roboto', Arial, sans-serif;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background: #1c2e4a;
+        }
+        .info {
+            margin-top: 1.5rem;
+            font-size: 0.98rem;
+            color: #40916c;
+            text-align: center;
+        }
+        .navbar {
+            width: 100%;
+            background: linear-gradient(90deg, #23325c 0%, #6fa3ef 100%);
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18);
+            border-bottom: 3px solid #6fa3ef;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 2rem;
+        }
+        .nav-link {
+            display: inline-block;
+            background: rgba(34, 44, 70, 0.92);
+            border-radius: 16px;
+            padding: 0.7rem 2.5rem;
+            box-shadow: 0 2px 12px #23325c;
+            border: 2px solid #6fa3ef;
+            color: #6fa3ef;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-right: 2rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .nav-link:last-child {
+            margin-right: 0;
+        }
+        .nav-link:hover {
+            color: #fff;
+        }
+        .active-link {
+            background: linear-gradient(90deg, #6fa3ef 0%, #23325c 100%);
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            margin-left: 2rem;
+            border: 2px solid #6fa3ef;
+        }
+    </style>
+    <script>
+        function toggleStudentSection() {
+            var select = document.getElementById('student');
+            var section = document.getElementById('student-section');
+            if (select.value === 'evet') {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        }
+    </script>
+</head>
+<body style="background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed; background-size: cover;">
+    <div class="navbar">
+        <nav style="text-align:center; padding:1.5rem 0;">
+            <a href="index.html" class="nav-link">Ana Sayfa</a>
+            <a href="basvuru.html" class="nav-link">Projeye Katıl</a>
+        </nav>
+    </div>
+    <div class="container" style="background:rgba(246,250,255,0.95);">
+        <h1>Projeye Katılım Başvurusu</h1>
+        <form enctype="multipart/form-data">
+            <label for="name">Ad Soyad</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Cep Telefonu</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,13}" placeholder="05XXXXXXXXX">
+
+            <label for="student">Öğrenci misiniz?</label>
+            <select id="student" name="student" onchange="toggleStudentSection()" required>
+                <option value="hayir">Hayır</option>
+                <option value="evet">Evet</option>
+            </select>
+
+            <div id="student-section" class="student-section">
+                <label for="school">Okul</label>
+                <input type="text" id="school" name="school">
+
+                <label for="schoolno">Okul Numarası</label>
+                <input type="text" id="schoolno" name="schoolno">
+
+                <label for="sinif">Sınıf Düzeyi</label>
+                <input type="text" id="sinif" name="sinif">
+
+                <label for="ogretim">Öğretim Düzeyi</label>
+                <div style="margin-top:0.5rem;">
+                    <label><input type="radio" name="ogretim" value="ortaokul"> Ortaokul</label>
+                    <label style="margin-left:1rem;"><input type="radio" name="ogretim" value="lise"> Lise</label>
+                    <label style="margin-left:1rem;"><input type="radio" name="ogretim" value="yuksek"> Yükseköğretim</label>
+                </div>
+
+                <label for="studentfile" style="margin-top:1.2rem;">Öğrenci Belgesi Yükle</label>
+                <input type="file" id="studentfile" name="studentfile" accept="image/*,.pdf">
+
+                <label for="iban" style="margin-top:1.2rem;">IBAN (Öğrenciyseniz 5$ gönderimi için)</label>
+                <input type="text" id="iban" name="iban" placeholder="TRXXXXXXXXXXXXXXXXXXXXXXXX" pattern="[A-Z]{2}[0-9A-Z]{24}" maxlength="26">
+
+                <label for="donate">Polyester kumaş bağışında bulunmak istiyorum</label>
+                <select id="donate" name="donate">
+                    <option value="hayir">Hayır</option>
+                    <option value="evet">Evet</option>
+                </select>
+                <div class="info">
+                    Öğrenci olup polyester kumaş bağışı yapanlara <strong>5$</strong> bağış yapılacaktır. IBAN numaranızı eksiksiz giriniz.
+                </div>
+            </div>
+
+            <label for="country">Ülke</label>
+            <input type="text" id="country" name="country" required>
+
+            <label for="city">Şehir</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="district">İlçe</label>
+            <input type="text" id="district" name="district" required>
+
+            <label for="donateAmount" style="margin-top:1.2rem;">Bağışladığınız Kıyafet Miktarı (kg)</label>
+            <input type="number" id="donateAmount" name="donateAmount" min="0.1" step="0.01" placeholder="Örn: 2.5" required>
+
+            <div class="checkboxes">
+                <label><input type="checkbox" required> Telif haklarının korunmasını kabul ediyorum</label>
+                <label><input type="checkbox" required> Gizlilik ihlali ve özel bilgilerin korunması kanununca izin veriyorum</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Başvuruyu Gönder</button>
+        </form>
+    </div>
+</body>
+</html>
